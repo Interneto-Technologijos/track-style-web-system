@@ -52,7 +52,7 @@ module.exports = async (trackId) => {
     { trackId: "6cUCckpdlqHJ5Ascf2uH2A", output: [0, 0, 0, 0, 0, 1] },
   ]);
 
-  // To export NN to file
+  // To export NN to file OR https://github.com/BrainJS/brain.js#json
   //console.log(net.toFunction().toString());
 
   const {
