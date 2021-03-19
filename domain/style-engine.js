@@ -52,6 +52,9 @@ module.exports = async (trackId) => {
     { trackId: "6cUCckpdlqHJ5Ascf2uH2A", output: [0, 0, 0, 0, 0, 1] },
   ]);
 
+  // To export NN to file
+  //console.log(net.toFunction().toString());
+
   const {
     danceability,
     energy,
