@@ -3,6 +3,7 @@
         "acousticness",
         "danceability",
         "instrumentalness",
-        "speechiness"
+        "speechiness",
+        "spotify"
     ]
 }
