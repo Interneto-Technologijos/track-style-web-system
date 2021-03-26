@@ -14,7 +14,10 @@ const refreshAccessToken = async () => {
     method: "post",
     headers: {
       "Content-Type": `application/x-www-form-urlencoded`,
-      Authorization: `Basic ${btoa(clientId + ":" + clientSecret)}`,
+      Authorization: `Basic ${Buffer.from(
+        clientId + ":" + clientSecret,
+        "UTF-8"
+      ).toString("base64")}`,
     },
     body: `grant_type=refresh_token&refresh_token=${refreshToken}`,
   });
