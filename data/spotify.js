@@ -18,7 +18,6 @@ const refreshAccessToken = async () => {
     },
     body: `grant_type=refresh_token&refresh_token=${refreshToken}`,
   });
-  console.log(response);
   accessToken = (await response.json()).access_token;
 };
 
@@ -38,4 +37,22 @@ module.exports.getTrackFeatures = async (trackId) => {
     return module.exports.getTrackFeatures(trackId);
   }
   return response.json();
+};
+
+module.exports.searchTracksByQuery = async (query) => {
+  if (!accessToken) {
+    await refreshAccessToken();
+  }
+  const response = await fetch(
+    `https://api.spotify.com/v1/search?q=${query}&type=track&limit=3`,
+    {
+      method: "get",
+      headers: { Authorization: `Bearer ${accessToken}` },
+    }
+  );
+  if (response.status === 401) {
+    await refreshAccessToken();
+    return module.exports.searchTracksByQuery(trackId);
+  }
+  return (await response.json()).tracks.items;
 };
