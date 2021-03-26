@@ -7,7 +7,11 @@ import { Bar } from "react-chartjs-2";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "./App.css";
 
-import { searchTracks, getTrackStyles } from "../services/api";
+import {
+  searchTracks,
+  getTrackStyles,
+  suggestTrackStyles,
+} from "../services/api";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -29,6 +33,10 @@ function App() {
 
   const styleButtonOnClick = () => {
     getTrackStyles(tracks[0].id).then(setStyles);
+  };
+
+  const suggestedStyleButtonOnClick = (suggestedStyles) => {
+    suggestTrackStyles(tracks[0].id, suggestedStyles).catch(console.error);
   };
 
   return (
@@ -88,6 +96,116 @@ function App() {
               options={{ maintainAspectRatio: false }}
             />
           )}
+        </Col>
+      </Row>
+      <Row style={{ paddingTop: 20 }}>
+        <Col style={{ textAlign: "center" }}>
+          <Button
+            variant="primary"
+            disabled={!styles.rock}
+            onClick={() =>
+              suggestedStyleButtonOnClick({
+                rock: 1,
+                rnb: 0,
+                pop: 0,
+                rap: 0,
+                electro: 0,
+                classical: 0,
+              })
+            }
+          >
+            Rock
+          </Button>
+        </Col>
+        <Col style={{ textAlign: "center" }}>
+          <Button
+            variant="primary"
+            disabled={!styles.rock}
+            onClick={() =>
+              suggestedStyleButtonOnClick({
+                rock: 0,
+                rnb: 1,
+                pop: 0,
+                rap: 0,
+                electro: 0,
+                classical: 0,
+              })
+            }
+          >
+            RnB
+          </Button>
+        </Col>
+        <Col style={{ textAlign: "center" }}>
+          <Button
+            variant="primary"
+            disabled={!styles.rock}
+            onClick={() =>
+              suggestedStyleButtonOnClick({
+                rock: 0,
+                rnb: 0,
+                pop: 1,
+                rap: 0,
+                electro: 0,
+                classical: 0,
+              })
+            }
+          >
+            Pop
+          </Button>
+        </Col>
+        <Col style={{ textAlign: "center" }}>
+          <Button
+            variant="primary"
+            disabled={!styles.rock}
+            onClick={() =>
+              suggestedStyleButtonOnClick({
+                rock: 0,
+                rnb: 0,
+                pop: 0,
+                rap: 1,
+                electro: 0,
+                classical: 0,
+              })
+            }
+          >
+            Rap
+          </Button>
+        </Col>
+        <Col style={{ textAlign: "center" }}>
+          <Button
+            variant="primary"
+            disabled={!styles.rock}
+            onClick={() =>
+              suggestedStyleButtonOnClick({
+                rock: 0,
+                rnb: 0,
+                pop: 0,
+                rap: 0,
+                electro: 1,
+                classical: 0,
+              })
+            }
+          >
+            Electro
+          </Button>
+        </Col>
+        <Col style={{ textAlign: "center" }}>
+          <Button
+            variant="primary"
+            disabled={!styles.rock}
+            onClick={() =>
+              suggestedStyleButtonOnClick({
+                rock: 0,
+                rnb: 0,
+                pop: 0,
+                rap: 0,
+                electro: 0,
+                classical: 1,
+              })
+            }
+          >
+            Classical
+          </Button>
         </Col>
       </Row>
     </Container>

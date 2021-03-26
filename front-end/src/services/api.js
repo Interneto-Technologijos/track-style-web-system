@@ -5,3 +5,12 @@ export const searchTracks = (query) =>
 
 export const getTrackStyles = (trackId) =>
   fetch(`${API}/tracks/${trackId}/styles`).then((response) => response.json());
+
+export const suggestTrackStyles = (trackId, styles) =>
+  fetch(`${API}/tracks/${trackId}/styles`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(styles),
+  }).then((response) => response.json());
