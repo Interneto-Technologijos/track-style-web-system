@@ -1,12 +1,14 @@
 const http = require("http");
 
 const express = require("express");
+const cors = require("cors");
 
 const styleEngine = require("../domain/style-engine");
+const spotify = require("../data/spotify");
 
 const app = express();
 
-const spotify = require("../data/spotify");
+app.use(cors());
 
 app.get("/api/tracks/:trackId/styles", async (req, res) => {
   if (!/[a-zA-Z0-9]{22}/.test(req.params.trackId)) {
