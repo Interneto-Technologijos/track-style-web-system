@@ -7,7 +7,7 @@ import { Bar } from "react-chartjs-2";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "./App.css";
 
-import { searchTracks, getTrackStyles } from "./api";
+import { searchTracks, getTrackStyles } from "../services/api";
 
 function App() {
   const [query, setQuery] = useState("");
