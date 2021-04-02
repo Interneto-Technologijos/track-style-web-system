@@ -1,4 +1,4 @@
-const API = "http://localhost:8080/api";
+const API = "http://localhost:8081/api";
 
 export const searchTracks = (query) =>
   fetch(`${API}/tracks?q=${query}`).then((response) => response.json());

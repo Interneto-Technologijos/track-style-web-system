@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "start": "node back-end"
+    "start": "node back-end",
+    "build": "docker build -t track-style-back-end .",
+    "run": "docker run -d -p 8080:8080 --name=track-style-back-end track-style-back-end:latest"
   },
   "author": "Mykolas",
   "license": "ISC",

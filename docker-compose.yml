@@ -1,0 +1,11 @@
+version: "3"
+services:
+  track-style-reverse-proxy:
+    build:
+      context: front-end
+    ports:
+      - "8081:80"
+
+  track-style-back-end:
+    build:
+      context: back-end
