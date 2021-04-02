@@ -19,3 +19,5 @@ Make sure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Com
 To build and run: `docker-compose up --build` (`CTRL+C` to stop)
 
 To remove: `docker-compose down`
+
+Access system at: http://localhost:8081/
