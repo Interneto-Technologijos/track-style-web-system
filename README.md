@@ -1,5 +1,7 @@
 # Track Style WEB System
 
+The WEB system that use track audio features provided by Spotify to learn and suggest closest style (Rock, Rap, Classical...) for a track.
+
 ## Wireframe
 
 https://wireframe.cc/d2LASp
