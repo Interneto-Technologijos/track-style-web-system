@@ -4,6 +4,7 @@ services:
     build:
       context: front-end
     ports:
+      - "8443:443"
       - "8081:80"
 
   track-style-back-end:

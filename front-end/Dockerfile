@@ -16,3 +16,5 @@ RUN npm run build
 RUN cp -R /opt/track-style-front-end/build/* /usr/share/nginx/html
 
 ADD nginx/default.conf /etc/nginx/conf.d/default.conf
+ADD nginx/localhost.crt /etc/nginx/conf.d/localhost.crt
+ADD nginx/localhost.key /etc/nginx/conf.d/localhost.key
